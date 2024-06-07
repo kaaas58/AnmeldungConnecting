@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap');
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+ 
+.container{
+    width: 750px;
+    height: 600px;
+    background: conic-gradient(from -45deg, #17160C, #F7B839, #B80419, #F3635E);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: lightEffect 5s infinite alternate;
+}
+
+@keyframes lightEffect{
+    0%{
+        box-shadow: 0 0 17px 10px rgba(247, 184, 57, 0.3);
+    }
+    100%{
+        box-shadow: 0 0 30px 15px rgba(243, 99, 94, 0.7);
+    }
+}
+
+.login-vertical{
+    transform: rotate(-90deg);
+    position: absolute;
+    font-size: 10rem;
+    letter-spacing: 25px;
+    color: rgb(255 255 255 / 15%);
+    left: -310px;
+}
+
+/*.container2{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border: 3px solid black;
+   margin-top: -500px;
+   background: #790f0f;
+   border-radius: 5px;
+}
+
+.login-horizontal{
+    transform: rotate(0deg);
+    position: relative;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    color: rgb(255 255 255 / 15%);
+    left: 10px;
+    top: -250px;
+}*/
+
+.login{
+    width: 80%;
+    height: 75%;
+    background: rgb(213 215 234 / 90%);
+    border-radius: 5px;
+    position: relative;
+}
+
+.login .login-tilted{
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 150px;
+    background: radial-gradient(circle at 0 0, white 20%, transparent 40%);
+    transform: rotate(-30deg);
+    left: 235px;
+    top: -150px;
+    mix-blend-mode: overlay;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
+}
+.login .user {
+    position: absolute;
+    left: 90px;
+    top: 135px;
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
+}
+
+.login .user i {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #17160C 30%, #F3635E 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 3px rgb(0 0 0 / 10%);
+}
+
+.login .login-title {
+    position: absolute;
+    top: 150px;
+    left: 190px;
+    font-size: 2.5rem;
+    letter-spacing: 8px;
+    background: linear-gradient(90deg, #17160C, #F3635E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 3px rgb(0 0 0 / 10%);
+}
+
+.login .username {
+    position: absolute;
+    top: 210px;
+    left: 210px;
+}
+
+/*.login .email {
+    position: absolute;
+    top: 220px;
+    left: 230px;
+}*/
+.error-message {
+    color: 'ff4d4d';
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    text-align: center;
+    background: #ffdede;
+    border: 1px solid #ffdede;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.login .password{
+    position: absolute;
+    top: 280px;
+    left: 250px;
+}
+
+input {
+    background: #e7e7e7;
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    border: 1px solid #d8d8d8;
+    border-radius: 20px;
+}
+
+::placeholder{
+    font-weight: normal;
+    font-size: 15px;
+    color: #584f4c;
+}
+
+.login .login-btn{
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to right, #17160C, #F3635E);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 290px;
+    top: 350px;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.3s;  /*Smooth transition for background and transform*/
+}
+
+.login .login-btn i {
+    color: rgb(221, 216, 216);
+    font-size: 2rem;
+    cursor: pointer;
+    background: linear-gradient(to right, #17160C, #F3635E);
+}
+
+.login .forgot {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 10px;
+    font-weight: 400px;
+    color: #790f0f;
+    text-decoration: none;
+}
