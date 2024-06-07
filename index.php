@@ -7,6 +7,7 @@
         // Récupération des valeurs du formulaire
         $name = $_POST["name"];     // name 
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        
 
         // check if user already exists in database and create  new user    
         $statement = $con->prepare("SELECT * FROM users WHERE username=:username OR email=:email");
