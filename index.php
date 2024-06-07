@@ -8,7 +8,6 @@
         $name = $_POST["name"];     // name 
         $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         
-
         // check if user already exists in database and create  new user    
         $statement = $con->prepare("SELECT * FROM users WHERE username=:username OR email=:email");
         $statement->bindParam(":username", $name); // bindParam() verbindet die Variablen mit den Werten
