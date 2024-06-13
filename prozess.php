@@ -28,14 +28,14 @@
             if($password == $password_confirm){
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             
-                $requete = $database->prepare("INSERT INTO users (name, vorname, username, email, password, password_confirm)  VALUES (:name, :vorname, :username, :email, :password, :password_confirm)");
+                $requete = $database->prepare("INSERT INTO users (name, vorname, benutzername, email, password, passwort_bestaetigen)  VALUES (:name, :vorname, :benutzername, :email, :password, :passwort_bestaetigen)");
                 $requete->execute([                    
                             'name' => $name,
                             'vorname' => $vorname,
-                            'username' => $username,
+                            'benutzername' => $username,
                             'email' => $email,
                             'password' => $hashedPassword,
-                            'password_confirm' => $hashedPassword
+                            'passwort_bestaetigen' => $hashedPassword
                             
                         ]);
 

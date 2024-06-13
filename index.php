@@ -2,14 +2,14 @@
     require("connection.php");
 
     if (isset($_POST["submit"])) {
-        var_dump($_POST); // var_dump() gibt alle Variablen und ihre Werte aus
+        // var_dump($_POST); // var_dump() gibt alle Variablen und ihre Werte aus
 
         // Récupération des valeurs du formulaire
         $name = $_POST["name"];     // name 
         $password = $_POST["password"];
 
         // check if user already exists in database and create  new user    
-        $statement = $con->prepare("SELECT * FROM users WHERE username=:username");
+        $statement = $con->prepare("SELECT * FROM users WHERE benutzername=:username");
         $statement->bindParam(":username", $name); // bindParam() verbindet die Variablen mit den Werten
         $statement->execute(); 
 
