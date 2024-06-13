@@ -36,7 +36,6 @@
 }
 ?>
 
-
 <html lang="de">
 
 <head>
@@ -44,7 +43,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anmeldungsseite</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="registrierung.css">
 </head>
 
 <body>
@@ -58,9 +57,8 @@
             <input type="text" id="vorname" name="vorname" placeholder="Vorname eingeben" class="username" required>
             <br>
 
-            <label for="benutzername">Benutzername*</label>
-            <input type="text" id="benutzername" name="benutzername" placeholder="Benutzername eingeben"
-                class="username" required>
+            <label for="username">Username*</label>
+            <input type="text" id="username" name="username" placeholder="Username eingeben" class="username" required>
             <br>
 
             <label for="email">E-Mail*</label>
@@ -72,8 +70,11 @@
             <br>
 
             <label for="password">Passwort bestätigen*</label>
-            <input type="password" id="password" name="password" placeholder="Passwort eingeben" class="email" required>
+            <input type="password" id="password_confirm" name="password_confirm" placeholder="Passwort eingeben"
+                class="password" required>
             <br>
+
+            <input type="hidden" name="submit" value="1">
 
             <input type="reset" name="reset" value="Abbrechen">
             <input type="submit" name="ok" value="Registrieren">
@@ -81,27 +82,6 @@
         </div>
     </form>
 
-    <!--
-            <h1 class="login-vertical">LOGIN</h1>
-            <div class="login">
-                <div class="login-tilted"></div>
-                <div class="user">
-                    <i class="ri-user-fill"></i>
-                </div>
-                <h1 class="login-title">ANMELDUNG</h1>
-                <input type="text" name="name" placeholder="Benutzername" class="username" required>
-                <input type="text" name="email" placeholder="Email@beispiel.com" class="email" required>
-                <input type="password" name="password" placeholder="Password" class="password" required>
-
-                <div class="login-btn">
-                    <button type="submit" name="submit">
-                        <i class="ri-play-line"></i>
-                    </button>
-                </div>
-                <a href="registrierung.php" class="forgot">Passwort vergessen</a>
-            </div>
-        </div>
-    </form>-->
 </body>
 
 </html>

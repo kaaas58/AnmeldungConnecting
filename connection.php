@@ -5,4 +5,4 @@
     $password = '';
     $con = new PDO($dsn, $username, $password); // Php Data Object, dsn = Data Source Name
 
-?>
+?>;
