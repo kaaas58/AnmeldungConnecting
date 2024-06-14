@@ -14,16 +14,12 @@
     
 
     if(isset($_POST['ok'])){
-        // Prüfen ob alle Felder ausgefüllt wurden 
-        if(empty($_POST['name']) || empty($_POST['vorname']) || empty($_POST['username']) || empty ($_POST['password']) || empty ($_POST['password_confirm'])){
-            echo "Bitte füllen Sie alle Felder aus";
-        } else {
             $name = $_POST['name'];
             $vorname = $_POST['vorname'];
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $password_confirm = $_POST['password_confirm']; //  Password confirmation
+            $password_confirm = $_POST['password_confirm']; 
                 
             if($password == $password_confirm){
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -48,7 +44,7 @@
                 echo "Passwörter stimmen nicht überein";
         
             }
-        }
+        // }
 }
     
 ?>;

@@ -2,10 +2,8 @@
     require("connection.php");
 
     if (isset($_POST["submit"])) {
-        // var_dump($_POST); // var_dump() gibt alle Variablen und ihre Werte aus
 
-        // Récupération des valeurs du formulaire
-        $name = $_POST["name"];     // name 
+        $name = $_POST["name"];
         $password = $_POST["password"];
 
         // check if user already exists in database and create  new user    
@@ -19,7 +17,9 @@
             // Benutzername und Passwort sind korrekt eingegeben und Session starten
             session_start();
             $_SESSION['user_id']  = $user["id"];
-            $_SESSION['username'] = $user["username"];
+            $_SESSION['username'] = $user["benutzername"];
+            $_SESSION['first_name'] = $user["vorname"];
+            $_SESSION['last_name'] = $user["name"];
             header("Location: homepage.php"); // return result to a new page with the new username  and password 
         } else {
             // username oder email sind nicht korrekt eingegeben
@@ -64,7 +64,7 @@
                         <i class="ri-play-line"></i>
                     </button>
                 </div>
-                <a href="registrierung.php" class="forgot">Passwort vergessen</a>
+                <a href="registrierung.php" class="forgot">Registrieren</a>
             </div>
         </div>
     </form>
