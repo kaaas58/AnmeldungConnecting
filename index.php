@@ -2,13 +2,11 @@
     require("connection.php");
 
     if (isset($_POST["submit"])) {
-
         $name = $_POST["name"];
         $password = $_POST["password"];
-
-        // check if user already exists in database and create  new user    
-        $statement = $con->prepare("SELECT * FROM users WHERE benutzername=:username");
-        $statement->bindParam(":username", $name); // bindParam() verbindet die Variablen mit den Werten
+        $connection = Connector::getConnection();
+        $statement = $connection->prepare("SELECT * FROM users WHERE benutzername=:username");
+        $statement->bindParam(":username", $name); 
         $statement->execute(); 
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);  // fetch() gibt alle Werte zurück
@@ -33,7 +31,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" nectiontent="width=device-width, initial-scale=1.0">
     <title>Seite zur Anmeldungsseite</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
