@@ -2,25 +2,24 @@
     require("connection.php");
 
     if (isset($_POST["submit"])) {
-        var_dump($_POST); // var_dump() gibt alle Variablen und ihre Werte aus
 
-        // Récupération des valeurs du formulaire
-        $name = $_POST["name"];     // name 
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        
+        $name = $_POST["name"];
+        $password = $_POST["password"];
+
         // check if user already exists in database and create  new user    
-        $statement = $con->prepare("SELECT * FROM users WHERE username=:username OR email=:email");
+        $statement = $con->prepare("SELECT * FROM users WHERE benutzername=:username");
         $statement->bindParam(":username", $name); // bindParam() verbindet die Variablen mit den Werten
-        $statement->bindParam(":email", $email);
         $statement->execute(); 
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);  // fetch() gibt alle Werte zurück
 
         if($user && password_verify($password, $user["password"])){ 
-            // Passwort korrekt eingegeben und Session starten
+            // Benutzername und Passwort sind korrekt eingegeben und Session starten
             session_start();
-            $_SESSION['user_id  = :user_id '];
-            $_SESSION['username'] = $user["username"];
+            $_SESSION['user_id']  = $user["id"];
+            $_SESSION['username'] = $user["benutzername"];
+            $_SESSION['first_name'] = $user["vorname"];
+            $_SESSION['last_name'] = $user["name"];
             header("Location: homepage.php"); // return result to a new page with the new username  and password 
         } else {
             // username oder email sind nicht korrekt eingegeben
@@ -28,7 +27,6 @@
         }
     }
 ?>
-
 
 
 <html lang="de">
@@ -58,7 +56,7 @@
                     <?php echo $error_message;?>
                 </p>
                 <?php endif; ?>
-                <input type="text" name="name" placeholder="Benutzername" class="username" required>
+                <input type="text" name="name" placeholder="Username" class="username" required>
                 <input type="password" name="password" placeholder="Password" class="password" required>
 
                 <div class="login-btn">
@@ -66,11 +64,10 @@
                         <i class="ri-play-line"></i>
                     </button>
                 </div>
-                <a href="registrierung.php" class="forgot">Passwort vergessen</a>
+                <a href="registrierung.php" class="forgot">Registrieren</a>
             </div>
         </div>
     </form>
 </body>
-
 
 </html>
