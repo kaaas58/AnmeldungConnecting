@@ -1,6 +1,11 @@
 <?php
     require("connection.php");
 
+    session_start();
+    if(!isset($_SESSION['site']) || $_SESSION['site'] != "loginApp"){
+        $_SESSION = array();
+    }
+    $_SESSION['site'] = "loginApp";
     if (isset($_POST["submit"])) {
         $name = $_POST["name"];
         $password = $_POST["password"];
@@ -13,7 +18,6 @@
 
         if($user && password_verify($password, $user["password"])){ 
             // Benutzername und Passwort sind korrekt eingegeben und Session starten
-            session_start();
             $_SESSION['user_id']  = $user["id"];
             $_SESSION['username'] = $user["benutzername"];
             $_SESSION['first_name'] = $user["vorname"];
