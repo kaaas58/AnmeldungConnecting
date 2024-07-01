@@ -51,12 +51,23 @@ input[type="reset"]{
     transition: background-color 0.3s ease;
 }
 
-input[type="reset"]{
+/* .container .btn-cancel{
     background-color: #ff0000;
 }
 
-input[type="reset"]:hover{
+.btn-cancel :hover{
     background-color: #cc0000;
+} */
+.btn-cancel {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #f44336;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 input[type="submit"]{

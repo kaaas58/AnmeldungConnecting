@@ -1,49 +1,14 @@
 <?php
-    require("connection.php");
+    require_once("JavascriptUtils.php");
     session_start();
 
     if (isset($_SESSION["error"])) {
         JavascriptUtils::alert($_SESSION["error"]);
         unset($_SESSION["error"]);
     }
-
-    if (isset($_POST["submit"])) {
-        var_dump($_POST); // var_dump() gibt alle Variablen und ihre Werte aus
-
-        // Récupération des valeurs du formulaire
-        $name = $_POST["name"];     // name           
-        $email = $_POST["email"];   // email
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
-        // check if user already exists in database and create  new user    
-        $statement = $con->prepare("SELECT * FROM users WHERE username=:username OR email=:email");
-        $statement->bindParam(":username", $name); // bindParam() verbindet die Variablen mit den Werten
-        $statement->bindParam(":email", $email);
-        $statement->execute(); 
-
-        $userAlreadyExists = $statement->fetchColumn();  // fetchColumn() gibt die erste Spalte der Tabelle zurück
-
-        if(!$userAlreadyExists) {
-            registerUser($name, $email, $password); 
-        } else {
-            echo "User existiert bereits";
-        }
-    }
-
-        function registerUser($name, $email, $password) { // register neu user        
-            global $con;
-            $statement = $con->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-            $statement->bindParam(":username", $name);
-            $statement->bindParam(":email", $email);
-            $statement->bindParam(":password", $password);
-            $result = $statement->execute();
-            header("Location: homepage.php"); // return result to a new page with the new username  and password 
-            exit; // EXIT_
-}
 ?>
 
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,7 +54,9 @@
 
             <input type="hidden" name="submit" value="1">
 
-            <input type="reset" name="reset" value="Abbrechen">
+          
+            <a href="index.php" class="btn">Abbrechen</a>
+            
             <input type="submit" name="ok" value="Registrieren">
 
         </div>

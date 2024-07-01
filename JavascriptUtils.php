@@ -11,6 +11,3 @@
             echo "<script>console.log('$message');</script>";
         }
     }
-
-    
-?>;
